@@ -9,6 +9,10 @@ apscheduler
 requests
 psutil
 colorama
+
+# For Web Deployable
 jinja2
 Flask
 gunicorn
+werkzeug
+itsdangerous
