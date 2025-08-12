@@ -9,6 +9,8 @@ apscheduler
 requests
 psutil
 colorama
+pytz
+shortzy
 
 # For Web Deployable
 jinja2
