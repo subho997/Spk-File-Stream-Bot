@@ -50,8 +50,22 @@
     <div class="outer">
         <div class="inner">
             <div class="main" id="main">
-                <video id="player" class="player" src="{{file_url}}" type="video/mp4" playsinline controls
-                    width="100%"></video>
+                <!-- Updated video tag with subtitles + multi-audio support -->
+<video id="player" class="player" playsinline controls crossorigin width="100%">
+  <!-- Default video source -->
+  <source src="{{file_url}}" type="video/mp4">
+
+  <!-- Optional extra audio track (if available dynamically) -->
+  <source src="{{alt_audio_url}}" type="audio/mp3" label="Alternate Audio">
+
+  <!-- Subtitle tracks -->
+  <track kind="subtitles" label="English" srclang="en" src="subs-en.vtt" default>
+  <track kind="subtitles" label="বাংলা" srclang="bn" src="subs-bn.vtt">
+  <track kind="subtitles" label="日本語" srclang="jp" src="subs-jp.vtt">
+
+  <!-- fallback text -->
+  Sorry, your browser doesn't support embedded videos.
+</video>
                 <div class="player"></div>
                 <div class="file-name">
                     <h4>File name : </h4>
@@ -191,10 +205,44 @@
     new WOW().init();
 </script>
 <script src="https://cdn.plyr.io/3.6.9/plyr.js"></script>
-<script src="https://biisal.github.io/Resources/StreamJs.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize Plyr with full settings
+  const player = new Plyr('#player', {
+    controls: [
+      'play-large', 'play', 'progress', 'current-time', 'duration',
+      'mute', 'volume', 'captions', 'settings', 'pip', 'airplay',
+      'fullscreen'
+    ],
+    settings: ['captions', 'quality', 'speed', 'loop'],
+    captions: { active: true, language: 'auto', update: true },
+    storage: { enabled: true, key: 'plyr-settings' }
+  });
+
+  // Show available audio tracks if browser supports them
+  if (player.media.audioTracks && player.media.audioTracks.length > 1) {
+    console.log('Detected multiple audio tracks:', player.media.audioTracks);
+  }
+});
+	  </script>
+	<input type="file" accept=".vtt" onchange="addSubtitle(this)">
+<script>
+function addSubtitle(input){
+  const file = input.files[0];
+  if(!file) return;
+  const url = URL.createObjectURL(file);
+  const track = document.createElement('track');
+  track.kind = 'subtitles';
+  track.label = file.name;
+  track.src = url;
+  document.querySelector('#player').appendChild(track);
+}
+</script>
+	<script src="https://biisal.github.io/Resources/StreamJs.js"></script>
 <script src="script.js"></script>
 
 </html>
 
 <!-- this code is written by @biisal tg:biisal-files & modified by TechifyBots -->
 <!-- stealing credit doesn't make you developer..so try to give full credit to the developer 😊 u will not loose anything for giving proper credit.   -->
+
