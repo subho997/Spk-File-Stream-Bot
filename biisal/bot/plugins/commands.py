@@ -22,7 +22,7 @@ TechifyBots = """{},
 
 𝖠𝖽𝖽 𝗆𝖾 𝗍𝗈 𝗒𝗈𝗎𝗋 𝖼𝗁𝖺𝗇𝗇𝖾𝗅 𝗍𝗈 𝗂𝗇𝗌𝗍𝖺𝗇𝗍𝗅𝗒 𝗀𝖾𝗇𝖾𝗋𝖺𝗍𝖾 𝗅𝗂𝗇𝗄𝗌 𝖿𝗈𝗋 𝖺𝗇𝗒 𝖽𝗈𝗐𝗇𝗅𝗈𝖺𝖽𝖺𝖻𝗅𝖾 𝗆𝖾𝖽𝗂𝖺. 𝖮𝗇𝖼𝖾 𝗋𝖾𝖼𝖾𝗂𝗏𝖾𝖽, 𝖨 𝗐𝗂𝗅𝗅 𝖺𝗎𝗍𝗈𝗆𝖺𝗍𝗂𝖼𝖺𝗅𝗅𝗒 𝖺𝗍𝗍𝖺𝖼𝗁 𝖺𝗉𝗉𝗋𝗈𝗉𝗋𝗂𝖺𝗍𝖾 𝖻𝗎𝗍𝗍𝗈𝗇𝗌 𝗍𝗈 𝗍𝗁𝖾 𝗉𝗈𝗌𝗍 𝖼𝗈𝗇𝗍𝖺𝗂𝗇𝗂𝗇𝗀 𝗍𝗁𝖾 𝖴𝖱𝖫.
 
-<b>𝘕𝘰𝘵𝘦 :</b>Join This Channel @spk_link
+<b>𝘕𝘰𝘵𝘦 :</b>Join This Channel @spk_links
 
 <blockquote><a href='https://telegram.me/Spk_File_Stream_Bot?startchannel&admin=post_messages+edit_messages+delete_messages'>➜ 𝖠𝖽𝖽 𝖳𝗈 𝖢𝗁𝖺𝗇𝗇𝖾𝗅</a></blockquote>"""
 
@@ -77,7 +77,7 @@ async def start(b, m):
                         InlineKeyboardButton("• ʜᴇʟᴘ •", callback_data="help")
                     ],
                     [
-                        InlineKeyboardButton("♻ ᴅᴇᴠᴇʟᴏᴘᴇʀ ♻", url="https://telegram.me/TechifyRahul")
+                        InlineKeyboardButton("♻ ᴅᴇᴠᴇʟᴏᴘᴇʀ ♻", url="https://t.me/spk_links")
                     ]
                 ]
             )
@@ -132,7 +132,7 @@ Just Send Me Files And I Will Give You Direct Download & Streaming Link.
 Also You Can Use Me In Your Channel..Just Add Me And Make Me Admin And See My Power 🔥</b>""",
     reply_markup=InlineKeyboardMarkup(
         [
-            [InlineKeyboardButton("👨‍💻  ʀᴇᴘᴏ", url="https://github.com/TechifyBots/File-Stream-Bot"),
+            [InlineKeyboardButton("👨‍💻  ʀᴇᴘᴏ", url="https://www.effectivegatecpm.com/az3skdj5?key=88cfc7361a971d3e94d30b0646858b41"),
             InlineKeyboardButton("💥  ᴅᴏɴᴀᴛᴇ", callback_data="donate")],
             [InlineKeyboardButton("✗ ᴄʟᴏsᴇ ✗", callback_data="close")]
         ]
@@ -205,7 +205,7 @@ async def cb_handler(client, query):
                             InlineKeyboardButton("• ʜᴇʟᴘ •", callback_data="help")
                         ],
                         [
-                            InlineKeyboardButton("♻ ᴅᴇᴠᴇʟᴏᴘᴇʀ ♻", url="https://telegram.me/TechifyRahul")
+                            InlineKeyboardButton("♻ ᴅᴇᴠᴇʟᴏᴘᴇʀ ♻", url="https://t.me/spk_links")
                         ]
                     ]
                 )
@@ -213,7 +213,7 @@ async def cb_handler(client, query):
 
     elif data == "about":
         await query.message.edit_caption(
-            caption=f"<b>ᴍʏ ɴᴀᴍᴇ : <a href='https://telegram.me/linkstreamrobot'>ʟɪɴᴋ sᴛʀᴇᴀᴍ ʀᴏʙᴏᴛ</a>\nʜᴏsᴛᴇᴅ ᴏɴ : ᴋᴏʏᴇʙ\nᴅᴀᴛᴀʙᴀsᴇ : ᴍᴏɴɢᴏ ᴅʙ\nʟᴀɴɢᴜᴀɢᴇ : ᴘʏᴛʜᴏɴ 𝟹\nᴍʏ ᴄʀᴇᴀᴛᴏʀ : <a href='https://telegram.me/callownerbot'>ʀᴀʜᴜʟ</a></b>",
+            caption=f"<b>ᴍʏ ɴᴀᴍᴇ : <a href='https://telegram.me/Spk_File_Stream_Bot'>ʟɪɴᴋ sᴛʀᴇᴀᴍ ʀᴏʙᴏᴛ</a>\nʜᴏsᴛᴇᴅ ᴏɴ : ᴋᴏʏᴇʙ\nᴅᴀᴛᴀʙᴀsᴇ : ᴍᴏɴɢᴏ ᴅʙ\nʟᴀɴɢᴜᴀɢᴇ : ᴘʏᴛʜᴏɴ 𝟹\nᴍʏ ᴄʀᴇᴀᴛᴏʀ : <a href='https://telegram.me/callownerbot'>ʀᴀʜᴜʟ</a></b>",
             reply_markup=InlineKeyboardMarkup(
                 [[ 
                      InlineKeyboardButton("ʜᴏᴍᴇ", callback_data="start"),
@@ -223,7 +223,7 @@ async def cb_handler(client, query):
         )
     elif data == "donate":
         await query.message.edit_caption(
-            caption=f"<blockquote>❤️‍🔥 𝐓𝐡𝐚𝐧𝐤𝐬 𝐟𝐨𝐫 𝐬𝐡𝐨𝐰𝐢𝐧𝐠 𝐢𝐧𝐭𝐞𝐫𝐞𝐬𝐭 𝐢𝐧 𝐃𝐨𝐧𝐚𝐭𝐢𝐨𝐧</blockquote>\n\n<b><i>💞  ɪꜰ ʏᴏᴜ ʟɪᴋᴇ ᴏᴜʀ ʙᴏᴛ ꜰᴇᴇʟ ꜰʀᴇᴇ ᴛᴏ ᴅᴏɴᴀᴛᴇ ᴀɴʏ ᴀᴍᴏᴜɴᴛ ₹𝟷𝟶, ₹𝟸𝟶, ₹𝟻𝟶, ₹𝟷𝟶𝟶, ᴇᴛᴄ.</i></b>\n\n❣️ 𝐷𝑜𝑛𝑎𝑡𝑖𝑜𝑛𝑠 𝑎𝑟𝑒 𝑟𝑒𝑎𝑙𝑙𝑦 𝑎𝑝𝑝𝑟𝑒𝑐𝑖𝑎𝑡𝑒𝑑 𝑖𝑡 ℎ𝑒𝑙𝑝𝑠 𝑖𝑛 𝑏𝑜𝑡 𝑑𝑒𝑣𝑒𝑙𝑜𝑝𝑚𝑒𝑛𝑡\n\n💖 𝐔𝐏𝐈 𝐈𝐃 : <code>TechifyBots@UPI</code>",
+            caption=f"<blockquote>❤️‍🔥 𝐓𝐡𝐚𝐧𝐤𝐬 𝐟𝐨𝐫 𝐬𝐡𝐨𝐰𝐢𝐧𝐠 𝐢𝐧𝐭𝐞𝐫𝐞𝐬𝐭 𝐢𝐧 𝐃𝐨𝐧𝐚𝐭𝐢𝐨𝐧</blockquote>\n\n<b><i>💞  ɪꜰ ʏᴏᴜ ʟɪᴋᴇ ᴏᴜʀ ʙᴏᴛ ꜰᴇᴇʟ ꜰʀᴇᴇ ᴛᴏ ᴅᴏɴᴀᴛᴇ ᴀɴʏ ᴀᴍᴏᴜɴᴛ ₹𝟷𝟶, ₹𝟸𝟶, ₹𝟻𝟶, ₹𝟷𝟶𝟶, ᴇᴛᴄ.</i></b>\n\n❣️ 𝐷𝑜𝑛𝑎𝑡𝑖𝑜𝑛𝑠 𝑎𝑟𝑒 𝑟𝑒𝑎𝑙𝑙𝑦 𝑎𝑝𝑝𝑟𝑒𝑐𝑖𝑎𝑡𝑒𝑑 𝑖𝑡 ℎ𝑒𝑙𝑝𝑠 𝑖𝑛 𝑏𝑜𝑡 𝑑𝑒𝑣𝑒𝑙𝑜𝑝𝑚𝑒𝑛𝑡\n\n💖 𝐔𝐏𝐈 𝐈𝐃 : <code>@Spk_links_1_bot</code>",
             reply_markup=InlineKeyboardMarkup(
                 [[ 
                      InlineKeyboardButton("ʙᴀᴄᴋ", callback_data="help"),
@@ -237,7 +237,7 @@ async def cb_handler(client, query):
         caption=f"<b>You Don't Need Many Commands To Use This Bot 😅.\n\nJust Send Me Files And I Will Give You Direct Download & Streaming Link.\n\nAlso You Can Use Me In Your Channel..Just Add Me And Make Me Admin And See My Power 🔥</b>",
             reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("👨‍💻  ʀᴇᴘᴏ", url="https://github.com/TechifyBots/File-Stream-Bot"),
+                [InlineKeyboardButton("👨‍💻  ʀᴇᴘᴏ", url="https://www.effectivegatecpm.com/az3skdj5?key=88cfc7361a971d3e94d30b0646858b41"),
                  InlineKeyboardButton("💥  ᴅᴏɴᴀᴛᴇ", callback_data="donate")],
                 [InlineKeyboardButton("ʜᴏᴍᴇ", callback_data="start")]
             ]
@@ -250,7 +250,7 @@ async def cb_handler(client, query):
         if len(str(user_id)) == 10:
             reason = str(data.split("_")[2])
             try:
-                await client.send_message(user_id , f"<b>ʏᴏᴜ ᴀʀᴇ ʙᴀɴɴᴇᴅ ʙʏ [ʀᴀʜᴜʟ](https://telegram.me/callownerbot)\nʀᴇᴀsᴏɴ : {reason}</b>")
+                await client.send_message(user_id , f"<b>ʏᴏᴜ ᴀʀᴇ ʙᴀɴɴᴇᴅ ʙʏ [ʀᴀʜᴜʟ](https://t.me/CallOwner_Bot)\nʀᴇᴀsᴏɴ : {reason}</b>")
                 await query.message.edit(f"<b>Aʟᴇʀᴛ sᴇɴᴛ ᴛᴏ <code>{user_id}</code>\nʀᴇᴀsᴏɴ : {reason}</b>")
             except Exception as e:
                 await query.message.edit(f"<b>sʀʏ ɪ ɢᴏᴛ ᴛʜɪs ᴇʀʀᴏʀ : {e}</b>")
@@ -267,7 +267,7 @@ async def cb_handler(client, query):
         user_id = int(user_id.replace(' ' , ''))
         if len(str(user_id)) == 10:
             try:
-                unban_text = "<b>ʜᴜʀʀᴀʏ..ʏᴏᴜ ᴀʀᴇ ᴜɴʙᴀɴɴᴇᴅ ʙʏ [ʀᴀʜᴜʟ](https://telegram.me/callownerbot)</b>"
+                unban_text = "<b>ʜᴜʀʀᴀʏ..ʏᴏᴜ ᴀʀᴇ ᴜɴʙᴀɴɴᴇᴅ ʙʏ [ʀᴀʜᴜʟ](https://t.me/CallOwner_Bot)</b>"
                 await client.send_message(user_id , unban_text)
                 await query.message.edit(f"<b>Uɴʙᴀɴɴᴇᴅ Aʟᴇʀᴛ sᴇɴᴛ ᴛᴏ <code>{user_id}</code>\nᴀʟᴇʀᴛ ᴛᴇxᴛ : {unban_text}</b>")
             except Exception as e:
@@ -279,3 +279,4 @@ async def cb_handler(client, query):
         user_id = int(user_id.replace(' ' , ''))
 
         await query.message.edit(f"Tʜᴇ ᴜɴʙᴀɴ ᴏɴ <code>{user_id}</code> ᴡᴀs ᴇxᴇᴄᴜᴛᴇᴅ sɪʟᴇɴᴛʟʏ.")
+
