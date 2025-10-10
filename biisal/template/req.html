@@ -17,45 +17,37 @@
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom controls styling */
+        /* Custom controls styling - only two options */
         .custom-controls {
             margin: 15px 0;
             padding: 15px;
             background: rgba(0,0,0,0.1);
             border-radius: 10px;
-            display: none; /* Initially hidden */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
         .control-group {
-            margin: 10px 0;
-            display: inline-block;
-            margin-right: 20px;
+            margin: 5px 0;
         }
         .control-label {
             font-weight: bold;
-            margin-right: 10px;
+            margin-right: 8px;
             color: #fff;
             display: block;
             margin-bottom: 5px;
+            font-size: 14px;
         }
         .control-select {
-            padding: 8px 12px;
+            padding: 6px 10px;
             border-radius: 5px;
             border: 1px solid #ccc;
             background: #333;
             color: #fff;
-            min-width: 150px;
-        }
-        .subtitle-upload-btn {
-            margin: 10px 0;
-            padding: 8px 15px;
-            background: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .subtitle-upload-btn:hover {
-            background: #45a049;
+            min-width: 120px;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -72,55 +64,50 @@
             <a href="#sec1" class="about-btn magnet" onclick="toggleWidthnav(this)">ABOUT</a>
         </div>
     </nav>
-    <center>
-        <div class="about-nav">
-            <a href="#sec1" class="wlcm magnet" onclick="toggleWidth(this)">WELCOME</a>
-            <a href="#sec2" class="abt-chnl magnet" onclick="toggleWidth(this)">FOLLOW</a>
-            <a href="#sec3" class="magnet bot-btn" onclick="toggleWidth(this) , bot_btn_clicked()">CHANNELS</a>
-            <a href="#sec4" class="magnet contact-btn" onclick="toggleWidth(this)">LET'S TALK</a>
-        </div>
-    </center>
 
     <div class="outer">
         <div class="inner">
             <div class="main" id="main">
-                <!-- Video player with multiple audio and subtitle support -->
+                <!-- Video player -->
                 <video id="player" class="player" playsinline controls crossorigin width="100%">
                     <!-- Default video source -->
                     <source src="{{file_url}}" type="video/mp4">
 
-                    <!-- Multiple audio tracks (will be detected automatically) -->
-                    <!-- <source src="{{english_audio}}" type="audio/mp3" data-kind="audio" data-label="English">
-                    <source src="{{bangla_audio}}" type="audio/mp3" data-kind="audio" data-label="Bangla"> -->
+                    <!-- Multiple audio tracks -->
+                    <source src="{{english_audio}}" type="audio/mp3" data-kind="audio" data-label="English">
+                    <source src="{{bangla_audio}}" type="audio/mp3" data-kind="audio" data-label="Bangla">
 
                     <!-- Subtitle tracks -->
                     <track kind="subtitles" label="Disabled" srclang="off" src="">
-                    <track kind="subtitles" label="English" srclang="en" src="subs-en.vtt">
+                    <track kind="subtitles" label="English" srclang="en" src="subs-en.vtt" default>
                     <track kind="subtitles" label="বাংলা" srclang="bn" src="subs-bn.vtt">
                     <track kind="subtitles" label="日本語" srclang="jp" src="subs-jp.vtt">
 
                     Sorry, your browser doesn't support embedded videos.
                 </video>
 
-                <!-- Custom Audio and Subtitle Controls (Initially hidden) -->
+                <!-- Custom Controls - Only Audio, Captions, and Speed -->
                 <div id="customControls" class="custom-controls">
-                    <!-- Audio Track Control (will show only if multiple audio tracks available) -->
+                    <!-- Audio Track Control (above captions) -->
                     <div id="audioControl" class="control-group" style="display: none;">
-                        <span class="control-label">Audio Track:</span>
+                        <span class="control-label">Audio:</span>
                         <select id="audioTrackSelect" class="control-select">
-                            <option value="0">Default Audio</option>
+                            <option value="0">Default</option>
                         </select>
                     </div>
                     
-                    <!-- Subtitle Control (will show only if subtitles available) -->
-                    <div id="subtitleControl" class="control-group" style="display: none;">
-                        <span class="control-label">Subtitles:</span>
+                    <!-- Captions Control -->
+                    <div id="subtitleControl" class="control-group">
+                        <span class="control-label">Captions:</span>
                         <select id="subtitleSelect" class="control-select">
                             <option value="off">Disabled</option>
+                            <option value="0">English</option>
+                            <option value="1">বাংলা</option>
+                            <option value="2">日本語</option>
                         </select>
                     </div>
 
-                    <!-- Playback Speed Control (always visible) -->
+                    <!-- Speed Control -->
                     <div class="control-group">
                         <span class="control-label">Speed:</span>
                         <select id="playbackSpeed" class="control-select">
@@ -131,14 +118,6 @@
                             <option value="1.5">1.5x</option>
                             <option value="2">2x</option>
                         </select>
-                    </div>
-
-                    <!-- Custom subtitle upload -->
-                    <div class="control-group">
-                        <button class="subtitle-upload-btn magnet" onclick="document.getElementById('subtitleUpload').click()">
-                            <i class="fas fa-closed-captioning"></i> Add Subtitle
-                        </button>
-                        <input type="file" accept=".vtt,.srt" onchange="addCustomSubtitle(this)" style="display: none;" id="subtitleUpload">
                     </div>
                 </div>
 
@@ -159,79 +138,8 @@
                 </div>
             </div>
 
-            <!-- Rest of your existing HTML content -->
-            <div class="abt">
-                <div class="about">
-                    <div class="about-dets">
-                        <div class="abt-sec" id="sec1" style="padding: 160px 30px;">
-                            <h1 style="text-align: center;">WELCOME TO OUR <Span>STREAMING</Span> PAGE</h1>
-                            <p style="text-align: center; line-height: 2;word-spacing: 2px;  letter-spacing: 0.8px;">
-                                We're thrilled to have <span>you</span> here. Get ready for an amazing <span>experience</span> filled with <span>entertainment</span>, <span>fun</span>, and <span>surprises</span>. Grab your snacks, sit back, and <span>enjoy</span> the show!
-                            </p>
-                        </div>
-                        <div class="abt-sec" id="sec2">
-                            <h1><span>FOLLOW</span> ME ON</h1>
-                            <div class="links chnl-link">
-                                <a class="magnet" href="https://www.effectivegatecpm.com/az3skdj5?key=88cfc7361a971d3e94d30b0646858b41"><button>GITHUB</button></a>
-                                <a class="magnet" href="https://www.effectivegatecpm.com/az3skdj5?key=88cfc7361a971d3e94d30b0646858b41"><button>TWITTER</button></a>
-                                <a class="magnet" href="https://www.effectivegatecpm.com/az3skdj5?key=88cfc7361a971d3e94d30b0646858b41"><button>WEBSITE</button></a>
-                                <a class="magnet" href="https://www.effectivegatecpm.com/az3skdj5?key=88cfc7361a971d3e94d30b0646858b41"><button>YOUTUBE</button></a>
-                                <a class="magnet" href="https://www.effectivegatecpm.com/az3skdj5?key=88cfc7361a971d3e94d30b0646858b41"><button>LINKEDIN</button></a>
-                                <a class="magnet" href="https://www.effectivegatecpm.com/az3skdj5?key=88cfc7361a971d3e94d30b0646858b41"><button>FACEBOOK</button></a>
-                                <a class="magnet" href="https://t.me/spk_links"><button>TELEGRAM</button></a>
-                                <a class="magnet" href="https://www.effectivegatecpm.com/az3skdj5?key=88cfc7361a971d3e94d30b0646858b41"><button>WHATSAPP</button></a>
-                                <a class="magnet" href="https://www.effectivegatecpm.com/az3skdj5?key=88cfc7361a971d3e94d30b0646858b41"><button>INSTAGRAM</button></a>
-                            </div>
-                        </div>
-                        <div class="abt-sec" id="sec3">
-                            <h1>OUR ALL <span>CHANNEL</span> LIST</h1>
-                            <div class="links bot-link">
-                                <a class="magnet" href="https://t.me/+kGTubE7cUutkMDI9"><button>ONLY FANS</button></a>
-                                <a class="magnet" href="https://t.me/+bZR60U6KwVdiOTI9"><button>JAPANESE AV</button></a>
-                                <a class="magnet" href="https://t.me/+Ra7WZMJKU_tlNGY1"><button>ADULT VIDEOS</button></a>
-                                <a class="magnet" href="https://t.me/+ibCfPYuD2rkxM2Fl"><button>DESHI VIDEOS</button></a>
-                                <a class="magnet" href="https://t.me/+yI0DNmInqM03ODll"><button>ADULT WEBSERIES & SHORTFILM</button></a>
-                                <a class="magnet" href="https://t.me/+y6R8Exy7KB01MzI1"><button>HENTA ANIME</button></a>
-                            </div>
-                        </div>
-                        <div class="abt-sec" id="sec4">
-                            <p style="text-align: center;">we can talk for your support and you can also report your problem</p>
-                            <div class="links contact">
-                                <a href="https://t.me/CallOwner_Bot"><button>CONTACT</button></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- Rest of your HTML content -->
         </div>
-        
-        <footer>
-            <div class="mid">
-                <h1 class="mid-text">VISIT <a href="#sec3" onclick="bot_btn_clicked()"><span>OUR CHANNEL LIST</span></a> FOR MORE INFO</h1>
-            </div>
-
-            <div class="last-text">
-                <p style="font-weight: 500;">
-                    Welcome to our online streaming platform! Our website allows users to generate streamable links for various files using Telegram bots. Please note that we are not responsible for the content shared or streamed through our service. Users are encouraged to respect copyright laws and adhere to our community guidelines. Enjoy easy, hassle-free file streaming.
-                    <br/> <br/>
-                    This website only provides a service that helps you to play your videos online without downloading. It does not offer storage or dissemination functions. You can report videos that contain issues such as copyright infringement, explicit content, 18+, violence, etc. <a href="https://telegram.me/CallOwner_Bot"><b><span>Report</span></b></a>
-                    <br/> <br/>
-                    <u>𝐍𝐨𝐭𝐞</u> : 𝖨𝖿 𝗒𝗈𝗎 𝖿𝗈𝗎𝗇𝖽 𝖺𝗇𝗒 𝖻𝗋𝗈𝗄𝖾𝗇 𝗅𝗂𝗇𝗄 𝗍𝗁𝖾𝗇 𝗉𝗅𝖾𝖺𝗌𝖾 𝗋𝖾𝗉𝗈𝗋𝗍 𝗂𝗇 𝗆𝗒 <b><a href="https://t.me/spklink"><span>𝗌𝗎𝗉𝗉𝗈𝗋𝗍 𝗀𝗋𝗈𝗎𝗉</span></a></b>
-                </p>
-            </div>
-
-            <center>
-                <div class="copyright">
-                    <h5 class="text-center">Copyright © 2024 All Rights Reserved.</h5>
-                    <div class="icons">
-                        <a href="https://www.effectivegatecpm.com/az3skdj5?key=88cfc7361a971d3e94d30b0646858b41"><i class="fa-brands fa-github fa-lg"></i></a>
-                        <a href="https://t.me/spk_links"><i class="fa-brands fa-telegram fa-lg"></i></a>
-                        <a href="https://www.effectivegatecpm.com/az3skdj5?key=88cfc7361a971d3e94d30b0646858b41"><i class="fa-brands fa-instagram fa-lg"></i></a>
-                    </div>
-                    <h4 style="font-weight: 700;">This Page Is Made By <a href="https://t.me/spklink"><span>Subho</span></a></h4>
-                </div>
-            </center>
-        </footer>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -257,7 +165,6 @@
 
         // Show custom controls
         const customControls = document.getElementById('customControls');
-        customControls.style.display = 'block';
 
         // Detect and setup audio tracks
         function setupAudioTracks() {
@@ -265,7 +172,7 @@
             const audioTrackSelect = document.getElementById('audioTrackSelect');
             
             // Clear existing options
-            audioTrackSelect.innerHTML = '<option value="0">Default Audio</option>';
+            audioTrackSelect.innerHTML = '<option value="0">Default</option>';
             
             // Check for multiple audio tracks
             if (player.media.audioTracks && player.media.audioTracks.length > 1) {
@@ -281,55 +188,15 @@
                 }
                 
                 // Show audio control
-                audioControl.style.display = 'inline-block';
+                audioControl.style.display = 'block';
+                
+                // Move audio control to be above captions
+                customControls.insertBefore(audioControl, document.getElementById('subtitleControl'));
             } else {
                 // Hide audio control if only one track
                 audioControl.style.display = 'none';
             }
         }
-
-        // Detect and setup subtitles
-        function setupSubtitles() {
-            const subtitleControl = document.getElementById('subtitleControl');
-            const subtitleSelect = document.getElementById('subtitleSelect');
-            
-            // Clear existing options except "Disabled"
-            subtitleSelect.innerHTML = '<option value="off">Disabled</option>';
-            
-            const tracks = player.elements.tracks;
-            let hasSubtitles = false;
-            
-            if (tracks && tracks.length > 0) {
-                for (let i = 0; i < tracks.length; i++) {
-                    const track = tracks[i];
-                    if (track.kind === 'subtitles' && track.src) {
-                        const option = document.createElement('option');
-                        option.value = i;
-                        option.textContent = track.label || `Subtitle ${i + 1}`;
-                        subtitleSelect.appendChild(option);
-                        hasSubtitles = true;
-                    }
-                }
-            }
-            
-            // Show subtitle control only if subtitles available
-            if (hasSubtitles) {
-                subtitleControl.style.display = 'inline-block';
-            } else {
-                subtitleControl.style.display = 'none';
-            }
-        }
-
-        // Audio Track Control
-        const audioTrackSelect = document.getElementById('audioTrackSelect');
-        audioTrackSelect.addEventListener('change', function() {
-            const audioTracks = player.media.audioTracks;
-            if (audioTracks && audioTracks.length > 0) {
-                for (let i = 0; i < audioTracks.length; i++) {
-                    audioTracks[i].enabled = (i === parseInt(this.value));
-                }
-            }
-        });
 
         // Subtitle Control
         const subtitleSelect = document.getElementById('subtitleSelect');
@@ -356,10 +223,40 @@
             }
         });
 
+        // Audio Track Control
+        const audioTrackSelect = document.getElementById('audioTrackSelect');
+        audioTrackSelect.addEventListener('change', function() {
+            const audioTracks = player.media.audioTracks;
+            if (audioTracks && audioTracks.length > 0) {
+                for (let i = 0; i < audioTracks.length; i++) {
+                    audioTracks[i].enabled = (i === parseInt(this.value));
+                }
+            }
+        });
+
         // Playback Speed Control
         const playbackSpeed = document.getElementById('playbackSpeed');
         playbackSpeed.addEventListener('change', function() {
             player.speed = parseFloat(this.value);
         });
 
-    
+        // Initialize controls after player is ready
+        player.on('ready', () => {
+            setTimeout(() => {
+                setupAudioTracks();
+            }, 1000);
+        });
+
+        // Also check when source changes
+        player.on('loadeddata', () => {
+            setTimeout(() => {
+                setupAudioTracks();
+            }, 500);
+        });
+    });
+    </script>
+
+    <script src="https://biisal.github.io/Resources/StreamJs.js"></script>
+    <script src="script.js"></script>
+</body>
+                        </html>
