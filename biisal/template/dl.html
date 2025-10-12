@@ -1,4 +1,4 @@
-<!-- (c) adarsh-goel -->
+<!-- (c) adarsh-goel-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,34 +11,19 @@
     <link rel="stylesheet" type='text/css' href="https://adarsh-goel.github.io/resources/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Delius">
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.12/plyr.css" />
+
+
 </head>
 
 <body class='cyber'>
     <header>
         <div class="toogle"></div>
         <div id="file-name" class="cyber">
-            <marquee direction="left">%s</marquee>
+            <marquee direction="left"> %s</marquee>
         </div>
     </header>
 
     <div class="container">
-        <!-- Plyr video player -->
-        <video class="player" controls crossorigin playsinline>
-            <!-- Default video source -->
-            <source src="%s" type="video/mp4" size="720">
-
-            <!-- Example alternate audio tracks -->
-            <track kind="captions" label="English" srclang="en" src="subtitles-en.vtt" default>
-            <track kind="captions" label="Hindi" srclang="hi" src="subtitles-hi.vtt">
-
-            <!-- Add multiple audio tracks -->
-            <source src="audio-en.mp4" type="audio/mp4" label="English">
-            <source src="audio-hi.mp4" type="audio/mp4" label="Hindi">
-
-            Your browser does not support HTML5 video.
-        </video>
-
         <a href=%s>
             <button class="cybr-btn">
                 Download
@@ -55,7 +40,9 @@
                 <h3 style="color: black; text-align: center;">FORK ME</h3>
             </a>
         </center>
+
     </footer>
+
 
     <script src="https://cdn.plyr.io/3.6.12/plyr.js"></script>
     <script>
@@ -71,22 +58,13 @@
             'volume',
             'captions',
             'settings',
-            'speed',
             'pip',
             'airplay',
             'download',
             'fullscreen'
         ];
-
         document.addEventListener('DOMContentLoaded', () => {
-            const player = new Plyr('.player', {
-                controls,
-                settings: ['captions', 'speed', 'quality', 'audio'],
-                speed: {
-                    selected: 1,
-                    options: [0.5, 0.75, 1, 1.25, 1.5, 2]
-                }
-            });
+            const player = Plyr.setup('.player', { controls });
         });
 
         const body = document.querySelector('body');
@@ -94,10 +72,10 @@
         const footer = document.querySelector('footer');
         const toogle = document.querySelector('.toogle');
         toogle.onclick = () => {
-            body.classList.toggle('dark');
-            footer.classList.toggle('dark');
-            title.classList.toggle('dark');
-        };
+            body.classList.toggle('dark')
+            footer.classList.toggle('dark')
+            title.classList.toggle('dark')
+        }
     </script>
 </body>
 </html>
